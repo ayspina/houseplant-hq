@@ -14,4 +14,7 @@ router.post('/', plantsCtrl.create);
 // GET /plants/:id - show one plant
 router.get('/:id', plantsCtrl.show);
 
+// DELETE /plants/:id - delete one plant 
+router.delete('/:id', plantsCtrl.delete);
+
 module.exports = router;

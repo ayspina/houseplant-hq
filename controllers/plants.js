@@ -5,7 +5,8 @@ module.exports = {
     index,
     new: newPlant,
     create,
-    show
+    show,
+    delete: deletePlant
 };
 
 function index(req, res) {
@@ -32,4 +33,10 @@ function show(req, res) {
     Plant.findById(req.params.id, function(err, plant) {
         res.render('plants/show', { title: `${plant.name}`, plant });
     });
+};
+
+function deletePlant(req, res) {
+    Plant.findOneAndDelete({_id: req.params.id}, function(err, plant) {
+        res.redirect('/plants');
+    })
 };

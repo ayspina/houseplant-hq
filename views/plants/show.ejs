@@ -3,6 +3,9 @@
 <div class="plant-img">
     <img src="<%= plant.plantImg[0] %>" alt="<%= plant.name %>">
 </div>
+<form action="/plants/<%= plant._id %>" method="POST">
+    <button class="delete-post">X</button>
+</form>
 <aside class="plant-info">
     <div>
         <p>A perfect plant for beginners. The <strong><%= plant.name %></strong> is a <strong><%= plant.maintenance %></strong> 
