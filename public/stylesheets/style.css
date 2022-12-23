@@ -6,3 +6,8 @@ body {
 a {
   color: #00B7FF;
 }
+
+.plant-img * {
+  width: 320px;
+  height: 480px;
+}

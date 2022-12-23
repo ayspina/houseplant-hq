@@ -17,12 +17,12 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/',
+    successRedirect: '/plants',
     failureRedirect: '/'
   }
 ));
 
-router.get('logout', function(req, res) {
+router.get('/logout', function(req, res) {
   req.logout(function() {
     res.redirect('/');
   });

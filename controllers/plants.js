@@ -2,9 +2,27 @@ const mongoose = require('mongoose');
 const Plant = require('../models/plant');
 
 module.exports = {
-    index
+    index,
+    new: newPlant,
+    create
 };
 
 function index(req, res) {
-    res.render('plants/index', { title: 'MY PLANTS' });
+    Plant.find({}, function(err, plants) {
+        res.render('plants/index', { title: 'MY PLANTS', plants });
+    });    
+};
+
+function newPlant(req, res) {
+    res.render('plants/new', { title: 'ADD A NEW PLANT'});
+};
+
+function create(req, res) {
+    req.body.petSafe = !!req.body.petSafe;
+    const plant = new Plant(req.body);
+    plant.save(function(err) {
+        if (err) return res.redirect('plants/new');
+        res.redirect('/plants');
+        console.log(req.body);
+    });  
 };

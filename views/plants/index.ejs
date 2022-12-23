@@ -1,6 +1,11 @@
 <%- include('../partials/header') %>
 
+<% plants.forEach(function(p) {  %>
+    <div class="plant-img">
+        <img src="<%= p.plantImg[0] %>" alt="<%= p.name %>">
+        <h2><a href="/plants/<%= p._id %>"><%= p.name %></a></h2>
+    </div>
 
-
+<% }); %>
 
 <%- include('../partials/footer') %>

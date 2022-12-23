@@ -5,4 +5,11 @@ const plantsCtrl = require('../controllers/plants');
 // GET /plants - show all plants 
 router.get('/', plantsCtrl.index);
 
+// GET /plants/new - show form for adding new plant post 
+router.get('/new', plantsCtrl.new);
+
+//POST /plants - add new plant to index 
+router.post('/', plantsCtrl.create);
+
+
 module.exports = router;
