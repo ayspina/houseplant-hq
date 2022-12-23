@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+
+<div class="plant-img">
+    <img src="<%= plant.plantImg[0] %>" alt="<%= plant.name %>">
+</div>
+<aside class="plant-info">
+    <div>
+        <p>A perfect plant for beginners. The <strong><%= plant.name %></strong> is a <strong><%= plant.maintenance %></strong> 
+        maintenance plant.</p>
+        <br><br><p>It requires <strong><%= plant.lightReq %></strong> and, therefore, can be used to brighten shady corners
+        and in homes with very little natural light.</p>
+        <br><br>Best of all, <strong><%= plant.name %></strong> is <strong>pet safe</strong>! 
+    </div>
+</aside>
+<section class="comments">
+    <h1>Daily Care Log</h1>
+    <h3>Plant care can be as challenging as it is rewarding. Add comments below to keep track of the routines
+        that keep your plant happy and healthy. Other plant owners can reference this log for guidance and/or offer
+        advice for any challenges you may face.. </h3>
+        <br><br><h3>Happy Growing!</h3>
+        <br><br><p>No comments yet...</p>
+    <form action="/plants/<%= plant._id %>/comments" method="POST">
+        <label>Add Comment</label>
+        <input type="text">
+        <input type="submit">
+    </form>
+</section>
+
+
+
+<%- include('../partials/footer') %>

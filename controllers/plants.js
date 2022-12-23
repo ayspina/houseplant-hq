@@ -4,7 +4,8 @@ const Plant = require('../models/plant');
 module.exports = {
     index,
     new: newPlant,
-    create
+    create,
+    show
 };
 
 function index(req, res) {
@@ -25,4 +26,10 @@ function create(req, res) {
         res.redirect('/plants');
         console.log(req.body);
     });  
+};
+
+function show(req, res) {
+    Plant.findById(req.params.id, function(err, plant) {
+        res.render('plants/show', { title: `${plant.name}`, plant });
+    });
 };
