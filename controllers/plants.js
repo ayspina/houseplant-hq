@@ -6,7 +6,9 @@ module.exports = {
     new: newPlant,
     create,
     show,
-    delete: deletePlant
+    delete: deletePlant,
+    edit,
+    update
 };
 
 function index(req, res) {
@@ -39,4 +41,16 @@ function deletePlant(req, res) {
     Plant.findOneAndDelete({_id: req.params.id}, function(err, plant) {
         res.redirect('/plants');
     })
+};
+
+function edit(req, res) {
+    Plant.findById(req.params.id, function(err, plant) {
+        res.render('plants/edit', { title: 'Edit Post', plant });
+    });
+};
+
+function update(req, res) {
+    Plant.findByIdAndUpdate(req.params.id, req.body, function(err, plant) {
+            res.redirect('/plants');
+        });
 };

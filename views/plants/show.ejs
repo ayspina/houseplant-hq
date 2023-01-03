@@ -3,9 +3,16 @@
 <div class="plant-img">
     <img src="<%= plant.plantImg[0] %>" alt="<%= plant.name %>">
 </div>
-<form action="/plants/<%= plant._id %>?_method=DELETE" method="POST">
-    <button class="delete-post">X</button>
-</form>
+<div>
+    <form action="/plants/<%= plant._id %>?_method=DELETE" method="POST">
+        <button class="delete-post">X</button>
+    </form>
+</div>
+<div>
+    <form action="/plants/<%= plant._id %>/edit" method="GET">
+        <button>Edit</button>
+    </form>
+</div>
 <aside class="plant-info">
     <div><h3>Fast Facts</h3></div>
     <table>
@@ -34,10 +41,19 @@
         that keep your plant happy and healthy. Other plant owners can reference this log for guidance and/or offer
         advice for any challenges you may face.. </h3>
         <br><br><h3>Happy Growing!</h3>
-        <br><br><p>No comments yet...</p>
+    <ul>
+        <% plant.comments.forEach(function(c) { %>
+        <li>
+            <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+                <button type="submit">X</button>
+            </form>
+            <%= c.content %>
+        </li>
+        <% }); %>
+    </ul>
     <form action="/plants/<%= plant._id %>/comments" method="POST">
         <label>Add Comment</label>
-        <input type="text">
+        <input type="text" name="content">
         <input type="submit">
     </form>
 </section>

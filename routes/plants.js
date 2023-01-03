@@ -17,4 +17,10 @@ router.get('/:id', plantsCtrl.show);
 // DELETE /plants/:id - delete one plant 
 router.delete('/:id', plantsCtrl.delete);
 
+// GET /plants/:id/edit - edit post
+router.get('/:id/edit', plantsCtrl.edit);
+
+// PUT /plants/:id - update post 
+router.put('/:id', plantsCtrl.update);
+
 module.exports = router;
