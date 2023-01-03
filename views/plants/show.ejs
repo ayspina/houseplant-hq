@@ -3,17 +3,30 @@
 <div class="plant-img">
     <img src="<%= plant.plantImg[0] %>" alt="<%= plant.name %>">
 </div>
-<form action="/plants/<%= plant._id %>" method="POST">
+<form action="/plants/<%= plant._id %>?_method=DELETE" method="POST">
     <button class="delete-post">X</button>
 </form>
 <aside class="plant-info">
-    <div>
-        <p>A perfect plant for beginners. The <strong><%= plant.name %></strong> is a <strong><%= plant.maintenance %></strong> 
-        maintenance plant.</p>
-        <br><br><p>It requires <strong><%= plant.lightReq %></strong> and, therefore, can be used to brighten shady corners
-        and in homes with very little natural light.</p>
-        <br><br>Best of all, <strong><%= plant.name %></strong> is <strong>pet safe</strong>! 
-    </div>
+    <div><h3>Fast Facts</h3></div>
+    <table>
+        <tr>
+            <td>Maintenance</td>
+            <td><%= plant.maintenance %></td>
+        </tr>
+        <tr>
+            <td>Light Requirement</td>
+            <td><%= plant.lightReq %></td>
+        </tr>
+        <tr>
+            <td>Water Requirement</td>
+            <td><%= plant.waterReq %></td>
+        </tr>
+        <tr>
+            <td>Pet Safe?</td>
+            <td><%= plant.petSafe %></td>
+        </tr>
+
+    </table>
 </aside>
 <section class="comments">
     <h1>Daily Care Log</h1>
