@@ -1,13 +1,29 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Girassol';
+  background-color: antiquewhite;
 }
 
 a {
-  color: #00B7FF;
+  color: rgba(34, 64, 9, 1);
+}
+
+h1 {
+  color: rgba(34, 64, 9, 1);
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  column-gap: 30px;
+  font-size: 18px;
+
 }
 
 .plant-img * {
   width: 320px;
   height: 480px;
+  border-radius: 2.5%;
+
 }
