@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
-<div class="plant-img">
-    <img src="<%= plant.plantImg[0] %>" alt="<%= plant.name %>">
+<div>
+    <img src="<%= plant.plantImg[0] %>" alt="<%= plant.name %>" class="plant-img">
 </div>
 <div>
     <form action="/plants/<%= plant._id %>?_method=DELETE" method="POST">
