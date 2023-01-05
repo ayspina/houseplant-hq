@@ -1,75 +1,70 @@
 <%- include('../partials/header') %>
 
+<div id="sale-info">
+    <h3 class="location"><%= plant.location %></h3>
+    <h3 class="price">$<%= plant.price %></h3>
+    <h3 id="availability">
+        <% if (plant.stillAvailable == false) { %>
+            <p><strong>THIS PLANT IS NO LONGER AVAILABLE</strong></p>
+        <% } %>
+    </h3>         
+</div>
 <section id="plant-listing">
     <div id="plant-photo">
-        <img src="<%= plant.plantImg[0] %>" alt="<%= plant.name %>" class="plant-img">
+        <img src="<%= plant.plantImg[0] %>" alt="<%= plant.name %>" class="show-plant-img">
     </div>
     <div id="edit-post">
         <form action="/plants/<%= plant._id %>?_method=DELETE" method="POST">
-            <button class="delete-post">X</button>
+            <button class="delete-post">DELETE</button>
         </form>
         <form action="/plants/<%= plant._id %>/edit" method="GET">
-            <button>Edit</button>
+            <button id="edit-btn">EDIT</button>
         </form>
     </div>
-    <div class="sale-info">
-        <table>
-            <tr>
-                <td>Location</td>
-                <td><%= plant.location %></td>
-            </tr>
-            <tr>
-                <td>Price</td>
-                <td><%= plant.price %></td>
-            </tr>
-            <tr>
-                <td>
-                    <% if (plant.stillAvailable == false) { %>
-                    <p><strong>THIS PLANT IS NO LONGER AVAILABLE</strong></p>
-                    <% } %>
-                </td>
-            </tr>
-        </table>
-    
-    </div>
-    <aside class="plant-info">
-        <div><h3>Plant Details</h3></div>
-        <table>
-            <tr>
-                <td>Maintenance</td>
-                <td><%= plant.maintenance %></td>
-            </tr>
-            <tr>
-                <td>Light Requirement</td>
-                <td><%= plant.lightReq %></td>
-            </tr>
-            <tr>
-                <td>Water Requirement</td>
-                <td><%= plant.waterReq %></td>
-            </tr>
-            <tr>
-                <td>Pet Safe?</td>
-                <td><%= plant.petSafe %></td>
-            </tr>
-    
-        </table>
+    <aside id="plant-info">
+        <div><h3>PLANT DETAILS</h3></div>
+        <ul>
+            <li>
+                <% if (plant.maintenance == 'low') { %>
+                    <p><strong>Low</strong> Maintenance</p>
+                <% } else { %>
+                    <p><strong>High</strong> Maintenance</p>
+                <% } %>
+            </li>
+            <li>
+                <p>Requires <strong><%= plant.lightReq %></strong> sunlight</p>
+            </li>
+            <li>
+               <p>Requires <strong><%= plant.waterReq %></strong> watering</p>
+            </li>
+            <li>
+                <% if (plant.petSafe == true) { %>
+                    <p>This plant is pet safe.</p>
+                <% } else { %>
+                    <p>This plant is <strong>not</strong> pet safe.</p>
+                <% } %>
+            </li>
+        </ul>
     </aside>
-    <section class="comments">
-        <h3>Additional Notes from Seller</h3>
+    <div id="contact-purchase">
+        <button id="purchase-btn">ADD TO CART</button>
+        <button id="contact-btn">CONTACT SELLER</button>
+    </div>
+    <section id="comments">
+        <h3>ADDITIONAL NOTES FROM SELLER</h3>
         <ul>
             <% plant.comments.forEach(function(c) { %>
             <li>
-                <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
-                    <button type="submit">X</button>
+                <form action="/comments/<%= c._id %>?_method=DELETE" method="POST" id="delete-comment">
+                    <button type="submit" class="delete-post">X</button>
                 </form>
                 <%= c.content %>
             </li>
             <% }); %>
         </ul>
         <form action="/plants/<%= plant._id %>/comments" method="POST">
-            <label>Add Comment</label>
             <input type="text" name="content">
-            <input type="submit">
+            <input type="submit" value="Add Comment" id="add-comment">
         </form>
     </section>
 </section>

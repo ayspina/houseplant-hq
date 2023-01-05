@@ -1,13 +1,13 @@
 <%- include('../partials/header') %>
 
 <h1><%= plant.name %></h1>
-<div>
-    <form action="/plants/<%= plant._id %>?_method=PUT" method="POST">
+<div id="edit-plant-page">
+    <form action="/plants/<%= plant._id %>?_method=PUT" method="POST"  id="edit-plant-form">
         <label>New Price</label>
         <input type="text" name="price">
         <label>Still Available?</label>
         <input type="checkbox" name="stillAvailable" checked>
-        <input type="submit" value="Update Listing">
+        <input type="submit" value="Update Listing" id="update-plant">
     </form>
 </div>
 

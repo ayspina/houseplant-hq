@@ -1,12 +1,15 @@
 body {
-  font-family: 14px 'Oswald', sans-serif;
   background-color: antiquewhite;
+  font-family: 'Anton', sans-serif;
+  color: rgba(34, 61, 9, 1);
+  margin-left: 150px;
+  margin-right: 150px;
 }
 
 #title > h1 {
   font-family: 'Shrikhand', cursive;
   text-align: center;
-  margin-top: 60px;
+  margin-top: 10px;
   color: rgba(34, 61, 9, 1);
   font-size: 60px;
   margin-bottom: 0;
@@ -19,16 +22,20 @@ body {
   font-size: 30px;
   margin-top: -30px;
   padding-bottom: 15px;
+  margin-bottom: 0;
 }
 
 a {
-  color: rgba(34, 64, 9, .75);
+  color: rgba(34, 61, 9, .75);
   text-decoration: none;
+  font-family: 18px 'Shrikhand', cursive;
 }
 
 h1 {
+  font-family: 'Anton', sans-serif;
   text-align: center;
-  color: rgba(34, 64, 9, 1);
+  color: rgba(34, 61, 9, 1);
+  margin-top: 10px;
 }
 
 nav {
@@ -37,6 +44,7 @@ nav {
   justify-content: space-evenly;
   column-gap: 30px;
   font-size: 18px;
+  font-family: 'Anton', sans-serif;
   padding: 5px;
   border-top: 1px solid rgba(34, 61, 9, .5);
   border-bottom: 1px solid rgba(34, 61, 9, .5);
@@ -56,8 +64,164 @@ nav {
 }
 
 #plant-name {
+  font-family: 'Shrikhand', cursive;
+  color: rgba(186, 101, 64, 1);
   height: 60px;
   width: 100px;
+}
+
+#index-plant-name {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#sale-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#plant-listing {
+  display: grid;
+  grid-template-areas: 
+    'photo details'
+    'photo comments'
+    'photo comments'
+    'edit contact';
+}
+
+#plant-photo {
+  grid-area: photo;
+  justify-self: center;
+}
+
+.show-plant-img {
+  width: 520px;
+  height: 580px;
+  border-radius: 25%;
+}
+
+#edit-post {
+  grid-area: edit;
+  display: flex;
+  flex-direction: row;
+  justify-self: center;
+}
+
+#plant-info {
+  grid-area: details;
+}
+
+#comments {
+  grid-area: comments;
+}
+
+.delete-post, #edit-btn {
+  margin: 5px;
+  font-family: 'Shrikhand', cursive;
+  color: rgba(34, 61, 9, .75);
+  background-color: antiquewhite;
+  border: .5px solid rgba(186, 101, 64, 1);
+  border-radius: 4.5%;
+}
+
+#add-comment {
+  font-family: 'Shrikhand', cursive;
+  color: rgba(34, 61, 9, .75);
+  background-color: antiquewhite;
+  border: .5px solid rgba(186, 101, 64, 1);
+  border-radius: 4.5%;
+}
+
+#delete-comment {
+  display: inline-block;
+}
+
+#comments > ul {
+  list-style-type: none;
+}
+
+#contact-purchase {
+  grid-area: contact;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+#purchase-btn, #contact-btn {
+  font-family: 'Shrikhand', cursive;
+  color: antiquewhite;
+  background-color: rgba(186, 101, 64, 1);
+  border: .5px solid rgba(186, 101, 64, 1);
+  border-radius: 4.5%;
+}
+#contact-btn {
+  margin-top: 10px;
+  width: 135.92px;
+}
+
+#purchase-btn {
+  width: 135.92px;
+}
+
+.location {
+  margin-bottom: 0;
+  margin-top: -20px;
+}
+
+.price {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#availability {
+  margin-top: 0;
+  color: red;
+}
+
+#new-plant-page, #edit-plant-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#new-plant-form, #edit-plant-form {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(2, minmax(auto, 400px));
+  font-family: 'Shrikhand', cursive;
+}
+
+#add-plant, #update-plant {
+  grid-column: span 2;
+  font-family: 'Shrikhand', cursive;
+  color: rgba(34, 61, 9, .75);
+  background-color: antiquewhite;
+  border: .5px solid rgba(186, 101, 64, 1);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 7px 0 7px;
+}
+
+#edit-plant-form {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(2, minmax(auto, 400px));
+}
+
+.index-plant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  font-family: 18px 'Oswald', sans-serif;;
+}
+
+#index-location { 
+  margin-top: 0;
+  margin-bottom: 0;
+  align-items: center;
+}
+
+#index-price {
+  margin-top: 0;
 }

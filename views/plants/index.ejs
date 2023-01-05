@@ -3,11 +3,11 @@
 
     <section id="plant-grid">
         <% plants.forEach(function(p) {  %>
-            <div>
+            <div class="index-plant">
                 <img src="<%= p.plantImg[0] %>" alt="<%= p.name %>" class="plant-img">
-                <h2><a href="/plants/<%= p._id %>" id="plant-name"><%= p.name %></a></h2>
-                <h4><%= p.location %></h4>
-                <h4><%= p.price %></h4>
+                <h2 id="index-plant-name"><a href="/plants/<%= p._id %>" id="plant-name"><%= p.name.toUpperCase(); %></a></h2>
+                <h4 id="index-location"><%= p.location %></h4>
+                <h4 id="index-price">$<%= p.price %></h4>
             </div>
         <% }); %>
     </section>
