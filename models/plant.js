@@ -12,6 +12,9 @@ const plantSchema = new Schema({
     lightReq: String,
     waterReq: String,
     petSafe: Boolean,
+    price: Number,
+    stillAvailable: Boolean,
+    location: String,
     comments: [commentSchema]
 });
 

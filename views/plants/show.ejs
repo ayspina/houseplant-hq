@@ -1,62 +1,79 @@
 <%- include('../partials/header') %>
 
-<div>
-    <img src="<%= plant.plantImg[0] %>" alt="<%= plant.name %>" class="plant-img">
-</div>
-<div>
-    <form action="/plants/<%= plant._id %>?_method=DELETE" method="POST">
-        <button class="delete-post">X</button>
-    </form>
-</div>
-<div>
-    <form action="/plants/<%= plant._id %>/edit" method="GET">
-        <button>Edit</button>
-    </form>
-</div>
-<aside class="plant-info">
-    <div><h3>Fast Facts</h3></div>
-    <table>
-        <tr>
-            <td>Maintenance</td>
-            <td><%= plant.maintenance %></td>
-        </tr>
-        <tr>
-            <td>Light Requirement</td>
-            <td><%= plant.lightReq %></td>
-        </tr>
-        <tr>
-            <td>Water Requirement</td>
-            <td><%= plant.waterReq %></td>
-        </tr>
-        <tr>
-            <td>Pet Safe?</td>
-            <td><%= plant.petSafe %></td>
-        </tr>
-
-    </table>
-</aside>
-<section class="comments">
-    <h1>Daily Care Log</h1>
-    <h3>Plant care can be as challenging as it is rewarding. Add comments below to keep track of the routines
-        that keep your plant happy and healthy. Other plant owners can reference this log for guidance and/or offer
-        advice for any challenges you may face.. </h3>
-        <br><br><h3>Happy Growing!</h3>
-    <ul>
-        <% plant.comments.forEach(function(c) { %>
-        <li>
-            <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
-                <button type="submit">X</button>
-            </form>
-            <%= c.content %>
-        </li>
-        <% }); %>
-    </ul>
-    <form action="/plants/<%= plant._id %>/comments" method="POST">
-        <label>Add Comment</label>
-        <input type="text" name="content">
-        <input type="submit">
-    </form>
+<section id="plant-listing">
+    <div id="plant-photo">
+        <img src="<%= plant.plantImg[0] %>" alt="<%= plant.name %>" class="plant-img">
+    </div>
+    <div id="edit-post">
+        <form action="/plants/<%= plant._id %>?_method=DELETE" method="POST">
+            <button class="delete-post">X</button>
+        </form>
+        <form action="/plants/<%= plant._id %>/edit" method="GET">
+            <button>Edit</button>
+        </form>
+    </div>
+    <div class="sale-info">
+        <table>
+            <tr>
+                <td>Location</td>
+                <td><%= plant.location %></td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td><%= plant.price %></td>
+            </tr>
+            <tr>
+                <td>
+                    <% if (plant.stillAvailable == false) { %>
+                    <p><strong>THIS PLANT IS NO LONGER AVAILABLE</strong></p>
+                    <% } %>
+                </td>
+            </tr>
+        </table>
+    
+    </div>
+    <aside class="plant-info">
+        <div><h3>Plant Details</h3></div>
+        <table>
+            <tr>
+                <td>Maintenance</td>
+                <td><%= plant.maintenance %></td>
+            </tr>
+            <tr>
+                <td>Light Requirement</td>
+                <td><%= plant.lightReq %></td>
+            </tr>
+            <tr>
+                <td>Water Requirement</td>
+                <td><%= plant.waterReq %></td>
+            </tr>
+            <tr>
+                <td>Pet Safe?</td>
+                <td><%= plant.petSafe %></td>
+            </tr>
+    
+        </table>
+    </aside>
+    <section class="comments">
+        <h3>Additional Notes from Seller</h3>
+        <ul>
+            <% plant.comments.forEach(function(c) { %>
+            <li>
+                <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+                    <button type="submit">X</button>
+                </form>
+                <%= c.content %>
+            </li>
+            <% }); %>
+        </ul>
+        <form action="/plants/<%= plant._id %>/comments" method="POST">
+            <label>Add Comment</label>
+            <input type="text" name="content">
+            <input type="submit">
+        </form>
+    </section>
 </section>
+
 
 
 

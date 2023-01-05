@@ -6,6 +6,8 @@
             <div>
                 <img src="<%= p.plantImg[0] %>" alt="<%= p.name %>" class="plant-img">
                 <h2><a href="/plants/<%= p._id %>" id="plant-name"><%= p.name %></a></h2>
+                <h4><%= p.location %></h4>
+                <h4><%= p.price %></h4>
             </div>
         <% }); %>
     </section>

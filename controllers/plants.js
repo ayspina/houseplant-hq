@@ -23,6 +23,7 @@ function newPlant(req, res) {
 
 function create(req, res) {
     req.body.petSafe = !!req.body.petSafe;
+    req.body.stillAvailable = !!req.body.stillAvailable;
     const plant = new Plant(req.body);
     plant.save(function(err) {
         if (err) return res.redirect('plants/new');
@@ -45,11 +46,12 @@ function deletePlant(req, res) {
 
 function edit(req, res) {
     Plant.findById(req.params.id, function(err, plant) {
-        res.render('plants/edit', { title: 'Edit Post', plant });
+        res.render('plants/edit', { title: 'Edit Listing', plant });
     });
 };
 
 function update(req, res) {
+    req.body.stillAvailable = !!req.body.stillAvailable;
     Plant.findByIdAndUpdate(req.params.id, req.body, function(err, plant) {
             res.redirect('/plants');
         });

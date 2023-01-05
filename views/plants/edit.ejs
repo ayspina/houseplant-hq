@@ -1,31 +1,13 @@
 <%- include('../partials/header') %>
 
-
+<h1><%= plant.name %></h1>
 <div>
     <form action="/plants/<%= plant._id %>?_method=PUT" method="POST">
-        <label>Plant Name</label>
-        <input type="text" name="name" value="<%= plant.name %>">
-        <label>Photo</label>
-        <input type="url" name="plantImg" value="<%= plant.plantImg %>">
-        <label>Maintenance Level</label>
-        <select name="maintenance" id="">
-            <option value="low">Low</option>
-            <option value="high">High</option>
-        </select>
-        <label>Sunlight Requirements</label>
-        <select name="lightReq" id="">
-            <option value="low">Low Light</option>
-            <option value="medium">Medium Light</option>
-            <option value="high">High Light</option>
-        </select>
-        <label>Watering Needs</label>
-        <select name="waterReq" id="">
-            <option value="infrequent">Infrequently</option>
-            <option value="regular">Regularly</option>
-        </select>
-        <label>Pet Safe?</label>
-        <input type="checkbox" name="petSafe" checked>
-        <input type="submit">
+        <label>New Price</label>
+        <input type="text" name="price">
+        <label>Still Available?</label>
+        <input type="checkbox" name="stillAvailable" checked>
+        <input type="submit" value="Update Listing">
     </form>
 </div>
 

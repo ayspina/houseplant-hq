@@ -1,5 +1,5 @@
 body {
-  font: 14px 'Oswald', sans-serif;
+  font-family: 14px 'Oswald', sans-serif;
   background-color: antiquewhite;
 }
 
@@ -59,4 +59,5 @@ nav {
   height: 60px;
   width: 100px;
   justify-content: center;
+  font-family: 18px 'Oswald', sans-serif;;
 }
