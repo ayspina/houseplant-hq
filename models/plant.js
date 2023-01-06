@@ -19,7 +19,7 @@ const plantSchema = new Schema({
     stillAvailable: Boolean,
     location: String,
     comments: [commentSchema],
-    userSelling: [{type: Schema.Types.ObjectId, ref: 'User'}]
+    userSelling: {type: Schema.Types.ObjectId, ref: 'User'}
 });
 
 module.exports = mongoose.model('Plant', plantSchema);
