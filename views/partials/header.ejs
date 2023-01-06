@@ -13,12 +13,18 @@
         <h1>HOUSEPLANT</h1>
         <h2>-HQ-</h2>
     </div>
+    <div id="app-description">
+        <h3>A HOUSEPLANT MARKETPLACE FOR BUYING, SELLING & TRADING LOCALLY</h3>
+    </div>
     <nav>
-            <a href="">HOME</a>
-            <a href="/plants">MY PLANTS</a>
+            <a href="/plants">HOME</a>
+            <% if (user) { %>
+            <a href="">MY PLANTS</a>
             <a href="/plants/new">ADD PLANT</a>
-            <a href="">SHOP</a>
             <a href="/logout">LOG OUT</a>
+            <% } else { %>
+            <a href="/auth/google" id="login">LOG IN</a>
+            <% } %> 
     </nav>
     <main>
         <h1><%= title %></h1>

@@ -227,3 +227,26 @@ nav {
 #index-price {
   margin-top: 0;
 }
+
+#home-img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  height: 600px;
+  width: 1000px;
+
+}
+
+#home {
+  object-fit: cover;
+  height: 600px;
+  width: 1000px;
+}
+
+#app-description {
+  font-family: 'Shrikhand', cursive;
+  color: rgba(186, 101, 64, 1);
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0;
+}

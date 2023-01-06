@@ -14,12 +14,14 @@
         <img src="<%= plant.plantImg[0] %>" alt="<%= plant.name %>" class="show-plant-img">
     </div>
     <div id="edit-post">
+        <% if (user && user._id.equals(plant.userSelling)) { %>
         <form action="/plants/<%= plant._id %>?_method=DELETE" method="POST">
             <button class="delete-post">DELETE</button>
         </form>
         <form action="/plants/<%= plant._id %>/edit" method="GET">
             <button id="edit-btn">EDIT</button>
         </form>
+        <% } %>
     </div>
     <aside id="plant-info">
         <div><h3>PLANT DETAILS</h3></div>
@@ -55,17 +57,21 @@
         <ul>
             <% plant.comments.forEach(function(c) { %>
             <li>
+                <% if (user && user._id.equals(c.user)) { %>
                 <form action="/comments/<%= c._id %>?_method=DELETE" method="POST" id="delete-comment">
                     <button type="submit" class="delete-post">X</button>
                 </form>
+                <% } %>
                 <%= c.content %>
             </li>
             <% }); %>
         </ul>
+        <% if (user && user._id.equals(plant.userSelling)) { %>
         <form action="/plants/<%= plant._id %>/comments" method="POST">
             <input type="text" name="content">
             <input type="submit" value="Add Comment" id="add-comment">
         </form>
+        <% } %>
     </section>
 </section>
 

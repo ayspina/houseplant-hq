@@ -1,15 +1,16 @@
 var express = require('express');
 var router = express.Router();
 const plantsCtrl = require('../controllers/plants');
+const isLoggedIn = require('../config/auth');
 
-// GET /plants - show all plants 
+// GET /plants - show all plants belonging to user
 router.get('/', plantsCtrl.index);
 
 // GET /plants/new - show form for adding new plant post 
-router.get('/new', plantsCtrl.new);
+router.get('/new', isLoggedIn, plantsCtrl.new);
 
 //POST /plants - add new plant to index 
-router.post('/', plantsCtrl.create);
+router.post('/', isLoggedIn, plantsCtrl.create);
 
 // GET /plants/:id - show one plant
 router.get('/:id', plantsCtrl.show);

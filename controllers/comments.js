@@ -8,8 +8,13 @@ module.exports = {
 
 function create(req, res) {
     Plant.findById(req.params.id, function(err, plant) {
+        req.body.user = req.user._id
+        req.body.userName = req.user.name
+        req.body.userAvatar = req.user.picture
         plant.comments.push(req.body);
+        console.log(req.body);
         plant.save(function(err) {
+            if (err) return res.redirect('/plants');
             res.redirect(`/plants/${plant._id}`);
         });
 

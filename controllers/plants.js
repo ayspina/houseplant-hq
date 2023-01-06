@@ -13,8 +13,8 @@ module.exports = {
 
 function index(req, res) {
     Plant.find({}, function(err, plants) {
-        res.render('plants/index', { title: 'MY PLANTS', plants });
-    });    
+        res.render('plants/index', { title: 'DISCOVER PLANTS IN YOUR AREA', plants});
+    });   
 };
 
 function newPlant(req, res) {
@@ -25,6 +25,7 @@ function create(req, res) {
     req.body.petSafe = !!req.body.petSafe;
     req.body.stillAvailable = !!req.body.stillAvailable;
     const plant = new Plant(req.body);
+    plant.userSelling = req.user._id;
     plant.save(function(err) {
         if (err) return res.redirect('plants/new');
         res.redirect('/plants');
