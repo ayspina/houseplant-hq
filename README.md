@@ -12,6 +12,7 @@ A virtual houseplant marketplace for buying, selling, and trading plants locally
 
 # Getting Started
 https://houseplant-hq.herokuapp.com/
+https://trello.com/b/WxkdWTXG/project-two
 
 ![Screen Shot 2023-01-06 at 12 48 42 PM](https://user-images.githubusercontent.com/60244001/211069589-d7708949-30d1-4a4b-a162-09dff768e7b4.png)
 
