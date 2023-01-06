@@ -9,6 +9,8 @@ A virtual houseplant marketplace for buying, selling, and trading plants locally
 - CSS 
 - HTML
 - EJS
+- Mongoose
+- MongoDB
 
 # Getting Started
 https://houseplant-hq.herokuapp.com/
